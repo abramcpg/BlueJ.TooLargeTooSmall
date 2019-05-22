@@ -11,14 +11,27 @@ public class Main
      
      int number = random.nextInt(10);
      int guess = -1;
-     int attempts = 0;
+     int guessed = -213;
+     int attempts = 1;
      System.out.print("Type a number between 0 and 10");
      while (guess!=number)
      {
-         ++attempts;
          
          System.out.println("\n");
          guess = scanner.nextInt();
+         
+         if (guess == guessed)
+         {
+             System.out.println("You already tried that. Try again...");
+         }
+         
+         else if (guess < 0 || guess > 10)
+         {
+             System.out.print("Ahem.. Between 0 and 10...");
+         }
+        
+         else
+         {
          
          if (guess<number)
          {
@@ -32,9 +45,9 @@ public class Main
          {
              System.out.println("Correct! It took you " + attempts + " attempts");
          }
-     }   
-            
-            
-            
+         guessed = guess;
+         ++attempts;
+         }
+     }        
     }           
 }    
